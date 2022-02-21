@@ -6,11 +6,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def home():
-    return 'MODELO DE PREDICCION CON MACHINE LEARNING'
+#@app.route('/')
+#def home():
+  #  return 'MODELO DE PREDICCION CON MACHINE LEARNING'
 
-@app.route('/predict',methods=['POST'])
+@app.route('/',methods=['POST'])
 def predict():
     '''
     For rendering results on HTML GUI
