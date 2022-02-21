@@ -15,30 +15,68 @@
  <div class="login">
   <h1>Predict Insurance Cost</h1>
   
- <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" alt="Health Insurance" width="300" height="200">
+ <img src="https://www.google.com/search?q=clientes&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiJ1-TSnZD2AhWzRjABHST2BVYQ_AUoAXoECAIQAw&biw=1176&bih=578&dpr=1.1#imgrc=eRZ0NonI7GhpgM" alt="Health Insurance" width="300" height="200">
 
  <br>
  <br>
  <br>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="Age" placeholder="Age" required="required" />
+ <!-- Entrada principal para recibir consultas en nuestro ML -->
+
+
+      <label for="Education">Nivel de Educación:</label>
+      <select name="Education" id="Education">
+        <option value="basico">Nivel basico</option>
+        <option value="Superior">Nivel Superior</option>
+      </select>
+
+     
+      <form action="{{ url_for('predict')}}"method="post">
+      <input type="int" name="Ingresos" placeholder="Ingresos" required="required" />
+
+
+
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="Edad" placeholder="Edad" required="required" />
+
+
+
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="Total de Gasto" placeholder="Total" required="required" />
+
+
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="Children" placeholder="Children" required="required" /> 
+
+
+       <label for="Relation">Estado Civil:</label>
+      <select name="Relation" id="Relation">
+        <option value="solo">Solo</option>
+        <option value="relacion">En una relacion</option>
+      </select>  
+
+
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="TotalAcceptedCmp" placeholder="TotalAcceptedCmp" required="required" /> 
       
-      <label for="Sex">Sex:</label>
-      <select name="Sex" id="Sex">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="NumTotalPurchases" placeholder="NumTotalPurchases" required="required" /> 
+
+
+      
+     
+
+      <label for="Año_Cliente">Año de Inicio Cliente:</label>
+      <select name="Año_Cliente" id="Año_Cliente">
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
       </select>
 
-      <label for="Smoker">Smoker:</label>
-      <select name="Smoker" id="Smoker">
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+
       <br>
       <br>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Insurance Cost</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predecir nivel de cluster</button>
     </form>
 
    <br>
