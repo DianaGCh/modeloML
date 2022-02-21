@@ -36,9 +36,9 @@ def predict():
         data.append(0)
         data.append(1)
     
-    prediction = model.predict([data])
-
-    output = round(prediction[0], 2)
+    clf=joblib.load('Modelo_Entrenado.pkl')
+    prediccion=clf.predict(data)
+    return 'los datos ingresados corresponden a un cliente de nivel: {0}\n\n'.format(prediccion)
 
     return render_template('index.html', prediction_text='The Insurance cost will be   $ {}'.format(output))
 
