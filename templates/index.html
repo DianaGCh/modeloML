@@ -13,9 +13,9 @@
 
 <body>
  <div class="login">
-  <h1>Prediccion de de nivel de calidad de un Cliente</h1>
+  <h1>Prediccion de nivel de Calidad de un Cliente</h1>
   
- <img src="https://www.google.com/search?q=clientes&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiJ1-TSnZD2AhWzRjABHST2BVYQ_AUoAXoECAIQAw&biw=1176&bih=578&dpr=1.1#imgrc=eRZ0NonI7GhpgM" alt="Health Insurance" width="300" height="200">
+ <img src="https://www.sistemaimpulsa.com/blog/wp-content/uploads/2019/03/servicio-clientes-2-696x305.jpg" alt="Health Insurance" width="300" height="200">
 
  <br>
  <br>
@@ -29,11 +29,12 @@
         <option value="basico">Nivel basico</option>
         <option value="Superior">Nivel Superior</option>
       </select>
+      <br/>
 
-     
+      <br>
       <form action="{{ url_for('predict')}}"method="post">
       <input type="int" name="Ingresos" placeholder="Ingresos" required="required" />
-
+      </br>
 
 
       <form action="{{ url_for('predict')}}"method="post">
@@ -62,9 +63,6 @@
       <form action="{{ url_for('predict')}}"method="post">
         <input type="int" name="NumTotalPurchases" placeholder="NumTotalPurchases" required="required" /> 
 
-
-      
-     
 
       <label for="Año_Cliente">Año de Inicio Cliente:</label>
       <select name="Año_Cliente" id="Año_Cliente">
