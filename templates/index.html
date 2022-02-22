@@ -1,64 +1,101 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
 
-.header {
-    color: #36A0FF;
-    font-size: 27px;
-    padding: 10px;
-}
+<body>
+ <div class="login">
+  <h1>Prediccion de nivel de Calidad de un Cliente</h1>
+  
+ <img src="https://www.sistemaimpulsa.com/blog/wp-content/uploads/2019/03/servicio-clientes-2-696x305.jpg" alt="Health Insurance" width="300" height="200">
 
-.bigicon {
-    font-size: 35px;
-    color: #36A0FF;
-}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="well well-sm">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center header">Contact us</legend>
+ <br>
+ <br>
+ <br>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>
+ <!-- Entrada principal para recibir consultas en nuestro ML -->
+ <div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="well well-sm">
+          <form action="{{ url_for('predict')}}" method="post">
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
-                            </div>
-                        </div>
+            <label for="Education">Nivel de Educación:</label>
+                <select name="Education" id="Education">
+                  <option value="basico">Nivel básico</option>
+                  <option value="Superior">Nivel Superior</option>
+                </select>
+            <br/>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-                            </div>
-                        </div>
+            <br>
+            <label for="Estado">Ingrese la Edad:</label>
+            <input type="int" name="Edad" placeholder="Edad" required="required" />
+            </br>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
-                            </div>
-                        </div>
+            
+            <br>
+            <label for="Relation">Estado Civil:</label>
+              <select name="Relation" id="Relation">
+              <option value="solo">Solo</option>
+              <option value="relacion">En una relacion</option>
+            </select>  
+            </br>
 
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
+            <br>
+            <label for="Children">Número de hijos:</label>
+            <input type="int" name="Children" placeholder=" " required="required" /> 
+            </br>
+
+            <br>
+            <label for="Ingreso">Ingresos del cliente:</label>
+                <input type="int" name="Ingreso" placeholder="Ingrese monto" required="required" />
+            </br>
+
+            
+
+            <br>
+            <label for="Gasto_total">Total de gasto en compras:</label>
+            <input type="int" name="Gasto_Total" placeholder="Ingrese un monto" required="required" />
+            </br>
+
+            
+
+
+            <br>
+            <label for="TotalAcceptedCmp">Número de Campañas aceptadas:</label>
+              <input type="int" name="TotalAcceptedCmp" placeholder=" " required="required" />  
+            </br>
+
+            <br>
+            <label for="TotalAcceptedCmp">Número veces que ha comprado:</label> 
+            <input type="int" name="NumTotalPurchases" placeholder=" " required="required" /> 
+            </br>
+
+            <br>
+            <label for="Año_Cliente">Año de Inicio Cliente:</label>
+            <select name="Año_Cliente" id="Año_Cliente">
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+            </select>
+            </br>
+              <br>
+
+            <button type="submit"> Obtener Predicción </button>
+          
+              </form>
             </div>
+          </div>
         </div>
-    </div>
+     
 </div>
+</body>
+</html>

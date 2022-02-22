@@ -1,7 +1,7 @@
-from crypt import methods
 from flask import Flask , render_template, request
-#from pyspark import F
 from flask_cors import CORS
+import pickle
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
@@ -19,27 +19,38 @@ def predict():
     item = [x for x in request.form.values()]
     data = []
 
-    data.append(int(item[0]))
-    
-    
-    if item[1] == 'Education':
-        data.append(0)
-        data.append(1)
-    else:
-        data.append(1)
-        data.append(0)
+    print(item)
 
-    if item[2] == 'Relation':
-        data.append(1)
+    
+    if item[0] == 'basico':
         data.append(0)
     else:
+        data.append(1)
+
+    data.append(int(item[1]))
+
+    if item[2] == 'solo':
         data.append(0)
+    else:
         data.append(1)
     
-    clf=joblib.load('Modelo_Entrenado.pkl')
-    prediccion=clf.predict(data)
+    data.append(int(item[3]))
+    data.append(int(item[4]))
+    data.append(int(item[5]))
+    data.append(int(item[6]))
+    data.append(int(item[7]))
+    data.append(int(item[8]))
+
+    dataNumpy = np.array(data)
+    dataNumpy = dataNumpy.reshape(1,-1)
     
-    return 'los datos ingresados corresponden a un cliente de nivel: {0}\n\n'.format(prediccion)
+    filename = './modelo_entrenado.pkl'
+    model = pickle.load(open(filename,"rb"))
+
+    prediccion=model.predict(dataNumpy)
+
+    print(prediccion[0])
+    return 'Los datos ingresados corresponden a un cliente de nivel: {0}\n\n'.format(prediccion[0])
 
     #return render_template('index.html', prediction_text='The Insurance cost will be   $ {}'.format(output))
 
