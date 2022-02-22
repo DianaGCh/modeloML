@@ -22,71 +22,74 @@
  <br>
 
  <!-- Entrada principal para recibir consultas en nuestro ML -->
+ <div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="well well-sm">
+          <form action="{{ url_for('predict')}}" method="post">
 
+            <label for="Education">Nivel de Educación:</label>
+                <select name="Education" id="Education">
+                  <option value="basico">Nivel básico</option>
+                  <option value="Superior">Nivel Superior</option>
+                </select>
+            <br/>
 
-      <label for="Education">Nivel de Educación:</label>
-      <select name="Education" id="Education">
-        <option value="basico">Nivel basico</option>
-        <option value="Superior">Nivel Superior</option>
-      </select>
-      <br/>
+            <br>
+            <label for="Ingreso">Ingresos del cliente:</label>
+                <input type="int" name="Ingreso" placeholder="Ingrese monto" required="required" />
+            </br>
 
-      <br>
-      <form action="{{ url_for('predict')}}"method="post">
-      <input type="int" name="Ingresos" placeholder="Ingresos" required="required" />
-      </br>
-      
-      <br>
-      <form action="{{ url_for('predict')}}"method="post">
-        <input type="int" name="Edad" placeholder="Edad" required="required" />
-      </br>
+            <br>
+            <label for="Estado">Ingrese la Edad:</label>
+            <input type="int" name="Edad" placeholder="Edad" required="required" />
+            </br>
 
-      <br>
-      <form action="{{ url_for('predict')}}"method="post">
-        <input type="int" name="Total de Gasto" placeholder="Total" required="required" />
-      </br>
+            <br>
+            <label for="Gasto_total">Total de gasto en compras:</label>
+            <input type="int" name="Gasto_Total" placeholder="Ingrese un monto" required="required" />
+            </br>
 
-      <br>
-      <form action="{{ url_for('predict')}}"method="post">
-        <input type="int" name="Children" placeholder="Children" required="required" /> 
-      </br>
+            <br>
+            <label for="Children">Número de hijos:</label>
+            <input type="int" name="Children" placeholder=" " required="required" /> 
+            </br>
 
-      <br>
-       <label for="Relation">Estado Civil:</label>
-      <select name="Relation" id="Relation">
-        <option value="solo">Solo</option>
-        <option value="relacion">En una relacion</option>
-      </select>  
-     </br>
+            <br>
+            <label for="Relation">Estado Civil:</label>
+              <select name="Relation" id="Relation">
+              <option value="solo">Solo</option>
+              <option value="relacion">En una relacion</option>
+            </select>  
+            </br>
 
-     <br>
-      <form action="{{ url_for('predict')}}"method="post">
-        <input type="int" name="TotalAcceptedCmp" placeholder="TotalAcceptedCmp" required="required" /> 
-      
-      <form action="{{ url_for('predict')}}"method="post">
-        <input type="int" name="NumTotalPurchases" placeholder="NumTotalPurchases" required="required" /> 
-      </br>
+            <br>
+            <label for="TotalAcceptedCmp">Número de Campañas aceptadas:</label>
+              <input type="int" name="TotalAcceptedCmp" placeholder=" " required="required" />  
+            </br>
 
-      <br>
-      <label for="Año_Cliente">Año de Inicio Cliente:</label>
-      <select name="Año_Cliente" id="Año_Cliente">
-        <option value="2012">2012</option>
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-      </select>
-     </br>
+            <br>
+            <label for="TotalAcceptedCmp">Número veces que ah comprado:</label> 
+            <input type="int" name="NumTotalPurchases" placeholder=" " required="required" /> 
+            </br>
 
-      <br>
-      <br>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predecir nivel de cluster</button>
-    </form>
+            <br>
+            <label for="Año_Cliente">Año de Inicio Cliente:</label>
+            <select name="Año_Cliente" id="Año_Cliente">
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+            </select>
+            </br>
+              <br>
 
-   <br>
-   <br>
-   {{ prediction_text }}
-
- </div>
-
-
+            <button type="submit"> Obtener Predicción </button>
+          
+              </form>
+            </div>
+          </div>
+        </div>
+     
+</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 from crypt import methods
-from flask import Flask , render_template
+from flask import Flask , render_template, request
 #from pyspark import F
 from flask_cors import CORS
 
@@ -9,7 +9,7 @@ CORS(app)
 @app.route('/')
 def home():
     #return 'MODELO DE PREDICCION CON MACHINE LEARNING'
-    return render_template('index.html')
+    return render_template('index1.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
