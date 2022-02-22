@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+  <h1>Prediccion de nivel de Calidad de un Cliente</h1>
+  
+ <img src="https://www.sistemaimpulsa.com/blog/wp-content/uploads/2019/03/servicio-clientes-2-696x305.jpg" alt="Health Insurance" width="300" height="200">
+
+ <br>
+ <br>
+ <br>
+
+ <!-- Entrada principal para recibir consultas en nuestro ML -->
+
+
+      <label for="Education">Nivel de Educación:</label>
+      <select name="Education" id="Education">
+        <option value="basico">Nivel basico</option>
+        <option value="Superior">Nivel Superior</option>
+      </select>
+      <br/>
+
+      <br>
+      <form action="{{ url_for('predict')}}"method="post">
+      <input type="int" name="Ingresos" placeholder="Ingresos" required="required" />
+      </br>
+      
+      <br>
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="Edad" placeholder="Edad" required="required" />
+      </br>
+
+      <br>
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="Total de Gasto" placeholder="Total" required="required" />
+      </br>
+
+      <br>
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="Children" placeholder="Children" required="required" /> 
+      </br>
+
+      <br>
+       <label for="Relation">Estado Civil:</label>
+      <select name="Relation" id="Relation">
+        <option value="solo">Solo</option>
+        <option value="relacion">En una relacion</option>
+      </select>  
+     </br>
+
+     <br>
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="TotalAcceptedCmp" placeholder="TotalAcceptedCmp" required="required" /> 
+      
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="int" name="NumTotalPurchases" placeholder="NumTotalPurchases" required="required" /> 
+      </br>
+
+      <br>
+      <label for="Año_Cliente">Año de Inicio Cliente:</label>
+      <select name="Año_Cliente" id="Año_Cliente">
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+      </select>
+     </br>
+
+      <br>
+      <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predecir nivel de cluster</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
