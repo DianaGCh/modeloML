@@ -9,7 +9,7 @@ CORS(app)
 @app.route('/')
 def home():
     #return 'MODELO DE PREDICCION CON MACHINE LEARNING'
-    return render_template('index1.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
